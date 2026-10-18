@@ -4,96 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pagamento</title>
+<link rel="stylesheet" href="./css/pagamento.css">
 </head>
 <body>
+<header class="header">
+  <a href="/" class="logo">
+    <img src="./imagens/barra/logo.jpeg" alt="Página inicial" width="60" height="60">
+  </a>
+
+  <form class="search-box" role="search" action="/busca">
+    <button type="submit" aria-label="Pesquisar">
+      <img src="./imagens/barra/lupa.png" alt="" width="20" height="20">
+    </button>
+    <input type="search" name="q" aria-label="Pesquisar produtos" placeholder="Pesquisar produtos e muito mais...">
+  </form>
+
+  <div class="header-actions">
+    <button type="button" aria-label="Notificações"><img src="./imagens/barra/sino.png" alt="" width="25" height="25"></button>
+    <a href="/carrinho" aria-label="Carrinho de compras"><img src="./imagens/barra/carrinho.png" alt="" width="25" height="25"></a>
+    <a href="/conta" aria-label="Minha conta"><img src="./imagens/barra/avatar.png" alt="" width="25" height="25"></a>
+  </div>
+</header>
+
 <div class="container">
 
   <nav class="etapas" aria-label="Etapas da compra">
-    <div class="etapa ativa">
-      <div class="num">1</div>
-      <div class="nome">Dados da Entrega</div>
-    </div>
+    <div class="etapa ativa" data-etapa="1"><div class="num">1</div><div class="nome">Dados da Entrega</div></div>
     <div class="linha"></div>
-    <div class="etapa">
-      <div class="num">2</div>
-      <div class="nome">Pagamento</div>
-    </div>
+    <div class="etapa" data-etapa="2"><div class="num">2</div><div class="nome">Pagamento</div></div>
     <div class="linha"></div>
-    <div class="etapa">
-      <div class="num">3</div>
-      <div class="nome">Revisão</div>
-    </div>
+    <div class="etapa" data-etapa="3"><div class="num">3</div><div class="nome">Revisão</div></div>
   </nav>
 
   <div class="layout">
-
     <div class="coluna-esq">
 
-      <section class="card">
+      <!-- ETAPA 1: ENTREGA -->
+      <section class="card painel ativo" id="painel-1">
         <div class="titulo-secao">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
           <div>
             <h2>Dados de entrega</h2>
             <p>Defina o local para receber sua compra</p>
           </div>
         </div>
 
-        <form class="grid" onsubmit="return false;">
+        <form class="grid" id="form-entrega" onsubmit="return false;">
           <div class="campo full">
             <label for="nome">Nome completo</label>
-            <input id="nome" type="text" placeholder="Digite seu nome completo">
+            <input id="nome" type="text" placeholder="Digite seu nome completo" required>
           </div>
-
           <div class="campo">
             <label for="email">E-mail</label>
-            <input id="email" type="email" placeholder="seu@email.com">
+            <input id="email" type="email" placeholder="seu@email.com" required>
           </div>
           <div class="campo">
             <label for="telefone">Telefone</label>
-            <input id="telefone" type="tel" placeholder="(00) 00000-0000">
+            <input id="telefone" type="tel" placeholder="(00) 00000-0000" required>
           </div>
-
           <div class="campo">
             <label for="cep">CEP
               <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" rel="noopener">Não sei meu CEP</a>
             </label>
-            <input id="cep" type="text" placeholder="00000-000">
+            <input id="cep" type="text" placeholder="00000-000" inputmode="numeric" maxlength="9" required>
           </div>
           <div class="campo">
             <label for="estado">Estado</label>
-            <select id="estado">
-              <option value="">Selecione seu estado</option>
-            </select>
+            <select id="estado" required><option value="">Selecione seu estado</option></select>
           </div>
-
           <div class="campo">
             <label for="cidade">Cidade</label>
-            <select id="cidade">
-              <option value="">Selecione sua cidade</option>
-            </select>
+            <select id="cidade" required><option value="">Selecione sua cidade</option></select>
           </div>
           <div class="campo">
             <label for="rua">Rua</label>
-            <input id="rua" type="text" placeholder="Digite o nome da rua">
+            <input id="rua" type="text" placeholder="Digite o nome da rua" required>
           </div>
-
           <div class="campo">
             <label for="numero">Número</label>
-            <input id="numero" type="text" placeholder="123">
+            <input id="numero" type="text" placeholder="123" required>
           </div>
           <div class="campo">
             <label for="complemento">Complemento (opcional)</label>
             <input id="complemento" type="text" placeholder="Apartamento, bloco, etc.">
           </div>
-
           <div class="campo full">
             <label for="bairro">Bairro</label>
-            <input id="bairro" type="text" placeholder="Digite seu bairro">
+            <input id="bairro" type="text" placeholder="Digite seu bairro" required>
           </div>
         </form>
       </section>
 
-      <section class="card">
+      <!-- ETAPA 2: PAGAMENTO -->
+      <section class="card painel" id="painel-2">
         <div class="titulo-secao">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
           <div>
             <h2>Forma de Pagamento</h2>
             <p>Seus dados e pagamento estão protegidos.</p>
@@ -101,22 +106,51 @@
         </div>
 
         <div class="pagamentos">
-          <label class="opcao"><input type="radio" name="pagamento" value="credito"> Cartão de crédito</label>
-          <label class="opcao"><input type="radio" name="pagamento" value="pix"> Pix</label>
-          <label class="opcao"><input type="radio" name="pagamento" value="boleto"> Boleto Bancário</label>
-          <label class="opcao"><input type="radio" name="pagamento" value="nanacash"> Nanacash</label>
+          <label class="opcao"><input type="radio" name="pagamento" value="Cartão de crédito"> Cartão de crédito</label>
+          <label class="opcao"><input type="radio" name="pagamento" value="Pix"> Pix</label>
+          <label class="opcao"><input type="radio" name="pagamento" value="Boleto Bancário"> Boleto Bancário</label>
+          <label class="opcao"><input type="radio" name="pagamento" value="Nanacash"> Nanacash</label>
         </div>
+
+        <form class="grid detalhe-pgto" id="det-cartao" hidden onsubmit="return false;">
+          <div class="campo full"><label for="cartao">Número do cartão</label><input id="cartao" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000"></div>
+          <div class="campo full"><label for="titular">Nome impresso no cartão</label><input id="titular" type="text" placeholder="Como está no cartão"></div>
+          <div class="campo"><label for="validade">Validade</label><input id="validade" type="text" placeholder="MM/AA"></div>
+          <div class="campo"><label for="cvv">CVV</label><input id="cvv" type="text" inputmode="numeric" maxlength="4" placeholder="123"></div>
+        </form>
+        <p class="detalhe-pgto aviso" id="det-outros" hidden></p>
       </section>
+
+      <!-- ETAPA 3: REVISÃO -->
+      <section class="card painel" id="painel-3">
+        <div class="titulo-secao">
+          <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          <div>
+            <h2>Revise seu pedido</h2>
+            <p>Confira os dados antes de finalizar a compra.</p>
+          </div>
+        </div>
+
+        <dl class="revisao">
+          <div class="bloco">
+            <dt>Entrega <button type="button" class="editar" data-ir="1">Alterar</button></dt>
+            <dd id="rev-entrega"></dd>
+          </div>
+          <div class="bloco">
+            <dt>Pagamento <button type="button" class="editar" data-ir="2">Alterar</button></dt>
+            <dd id="rev-pagamento"></dd>
+          </div>
+        </dl>
+      </section>
+
+      <p class="erro" id="erro" role="alert" hidden></p>
     </div>
 
     <aside class="card resumo">
       <h3>Resumo do pedido</h3>
 
       <div class="produto">
-        <div class="img">
-          <img src="./imagens/produtos/jaleco.png" alt="Produto selecionado">
-        </div>
-
+        <div class="img"><img src="./imagens/produtos/jaleco.png" alt="Produto selecionado"></div>
         <div class="info">
           <h4>Produto selecionado</h4>
           <p>Quantidade</p>
@@ -128,39 +162,122 @@
         </div>
       </div>
 
-      <div class="linha-valor subtotal">
-        <span class="rot">Subtotal</span>
-        <span class="val" id="subtotal">R$ 29,90</span>
-      </div>
-      <div class="linha-valor frete">
-        <span class="rot">Frete</span>
-        <span class="val" id="frete">R$ 5,00</span>
-      </div>
-      <div class="linha-valor total">
-        <span class="rot">Total</span>
-        <span class="val" id="total">R$ 34,90</span>
-      </div>
+      <div class="linha-valor subtotal"><span class="rot">Subtotal</span><span class="val" id="subtotal">R$ 29,90</span></div>
+      <div class="linha-valor frete"><span class="rot">Frete</span><span class="val" id="frete">R$ 5,00</span></div>
+      <div class="linha-valor total"><span class="rot">Total</span><span class="val" id="total">R$ 34,90</span></div>
 
-      <button class="btn-finalizar" type="button">FINALIZAR COMPRA</button>
+      <div class="acoes">
+        <button class="btn-voltar" type="button" id="voltar" hidden>VOLTAR</button>
+        <button class="btn-finalizar" type="button" id="avancar">CONTINUAR</button>
+      </div>
     </aside>
-
   </div>
 </div>
 
 <script>
-  const PRECO = 29.90;
-  const FRETE = 5.00;
+  const PRECO = 29.90, FRETE = 5.00;
   let qtd = 1;
   const fmt = v => "R$ " + v.toFixed(2).replace(".", ",");
+  const $ = id => document.getElementById(id);
 
   function atualizar() {
-    document.getElementById("qtd").textContent = qtd;
-    document.getElementById("subtotal").textContent = fmt(PRECO * qtd);
-    document.getElementById("frete").textContent = fmt(FRETE);
-    document.getElementById("total").textContent = fmt(PRECO * qtd + FRETE);
+    $("qtd").textContent = qtd;
+    $("subtotal").textContent = fmt(PRECO * qtd);
+    $("frete").textContent = fmt(FRETE);
+    $("total").textContent = fmt(PRECO * qtd + FRETE);
   }
-  document.getElementById("mais").onclick  = () => { qtd++; atualizar(); };
-  document.getElementById("menos").onclick = () => { if (qtd > 1) qtd--; atualizar(); };
+  $("mais").onclick  = () => { qtd++; atualizar(); };
+  $("menos").onclick = () => { if (qtd > 1) qtd--; atualizar(); };
+
+  let etapa = 1;
+  const rotulos = { 1: "CONTINUAR", 2: "CONTINUAR", 3: "FINALIZAR COMPRA" };
+
+  function irPara(n) {
+    etapa = n;
+    document.querySelectorAll(".painel").forEach((p, i) => p.classList.toggle("ativo", i + 1 === n));
+    document.querySelectorAll(".etapa").forEach(e => {
+      const i = +e.dataset.etapa;
+      e.classList.toggle("ativa", i === n);
+      e.classList.toggle("feita", i < n);
+    });
+    document.querySelectorAll(".linha").forEach((l, i) => l.classList.toggle("feita", i + 1 < n));
+    $("voltar").hidden = n === 1;
+    $("avancar").textContent = rotulos[n];
+    $("erro").hidden = true;
+    if (n === 3) preencherRevisao();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function erro(msg) { $("erro").textContent = msg; $("erro").hidden = false; }
+
+  function validar() {
+    if (etapa === 1) {
+      const form = $("form-entrega");
+      if (!form.checkValidity()) { form.reportValidity(); return false; }
+    }
+    if (etapa === 2) {
+      const pg = document.querySelector('input[name="pagamento"]:checked');
+      if (!pg) { erro("Escolha uma forma de pagamento para continuar."); return false; }
+      if (pg.value === "Cartão de crédito") {
+        const f = $("det-cartao");
+        if (![...f.querySelectorAll("input")].every(i => i.value.trim())) {
+          erro("Preencha todos os dados do cartão."); return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  $("avancar").onclick = () => {
+    if (!validar()) return;
+    if (etapa < 3) irPara(etapa + 1);
+    else alert("Compra finalizada! (aqui entra a integração com o pagamento)");
+  };
+  $("voltar").onclick = () => irPara(etapa - 1);
+  document.querySelectorAll(".editar").forEach(b => b.onclick = () => irPara(+b.dataset.ir));
+
+  const avisos = {
+    "Pix": "O código Pix será gerado na próxima etapa, depois de finalizar a compra.",
+    "Boleto Bancário": "O boleto será gerado ao finalizar a compra e vence em 3 dias úteis.",
+    "Nanacash": "O valor será debitado do seu saldo Nanacash."
+  };
+  document.querySelectorAll('input[name="pagamento"]').forEach(r => r.onchange = () => {
+    const cartao = r.value === "Cartão de crédito";
+    $("det-cartao").hidden = !cartao;
+    $("det-outros").hidden = cartao;
+    $("det-outros").textContent = avisos[r.value] || "";
+    $("erro").hidden = true;
+  });
+
+  function preencherRevisao() {
+    const v = id => $(id).value.trim();
+    const comp = v("complemento") ? ", " + v("complemento") : "";
+    const cidade = $("cidade").selectedOptions[0].text;
+    $("rev-entrega").innerHTML =
+      `${v("nome")}<br>${v("email")} · ${v("telefone")}<br>` +
+      `${v("rua")}, ${v("numero")}${comp} - ${v("bairro")}<br>` +
+      `${cidade}/${v("estado")} · CEP ${v("cep")}`;
+    $("rev-pagamento").textContent = document.querySelector('input[name="pagamento"]:checked').value;
+  }
+
+  const IBGE = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+  fetch(IBGE + "?orderBy=nome").then(r => r.json()).then(lista => {
+    lista.forEach(e => $("estado").add(new Option(e.nome, e.sigla)));
+  }).catch(() => {});
+
+  $("estado").onchange = () => {
+    const uf = $("estado").value;
+    $("cidade").length = 1;
+    if (!uf) return;
+    fetch(`${IBGE}/${uf}/municipios?orderBy=nome`).then(r => r.json()).then(lista => {
+      lista.forEach(c => $("cidade").add(new Option(c.nome, c.nome)));
+    }).catch(() => {});
+  };
+
+  $("cep").oninput = e => {
+    const d = e.target.value.replace(/\D/g, "").slice(0, 8);
+    e.target.value = d.length > 5 ? d.slice(0, 5) + "-" + d.slice(5) : d;
+  };
 </script>
 </body>
 </html>

@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NanaBorok. - Camisetas, jalecos, moletons e muito mais.">
     <title>NanaBorok.</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/vitrine.css">
 </head>
 
 <body>
     <header class="header">
         <a href="/" class="logo">
-            <img src="./imagens/barra/logo.jpeg" alt=" Página inicial" width="60" height="60">
+            <img src="./imagens/barra/logo.jpeg" alt="Página inicial" width="60" height="60">
         </a>
 
         <form class="search-box" role="search" action="/busca">
-            <input type="search" name="q" aria-label="Pesquisar produtos"
-                placeholder="Pesquisar produtos e muito mais...">
             <button type="submit" aria-label="Pesquisar">
                 <img src="./imagens/barra/lupa.png" alt="" width="20" height="20">
             </button>
+            <input type="search" name="q" aria-label="Pesquisar produtos"
+                placeholder="Pesquisar produtos e muito mais...">
         </form>
 
         <div class="header-actions">
@@ -34,70 +33,217 @@
                 <img src="./imagens/barra/avatar.png" alt="" width="25" height="25">
             </a>
         </div>
-
-        <nav aria-label="Categorias">
-            <ul>
-                <li><a href="/camisetas">Camisetas</a></li>
-                <li><a href="/jalecos">Jalecos</a></li>
-                <li><a href="/moletons">Moletons</a></li>
-                <li><a href="/calcas">Calças</a></li>
-                <li><a href="/bones">Bonés</a></li>
-                <li><a href="/acessorios">Acessórios</a></li>
-                <li><a href="/novidades">Novidades</a></li>
-                <li><a href="/promocoes">Promoções</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <section>
-        <div>
-            <h1>Sua vitrine, do seu jeito!</h1>
-            <p>Encontre os produtos da NanaBorok em um só lugar.</p>
+    <nav class="menu-principal" aria-label="Menu principal">
+        <a href="/">Home</a>
+        <a href="/projetos">Projetos</a>
+        <a href="/personalize">Personalize sua roupa</a>
+        <a href="/sobre">Sobre nós</a>
+    </nav>
+
+    <nav class="categorias" aria-label="Categorias">
+        <ul>
+            <li><a href="/camisetas">Camisetas</a></li>
+            <li><a href="/jalecos">Jalecos</a></li>
+            <li><a href="/moletons">Moletons</a></li>
+            <li><a href="/calcas">Calças</a></li>
+            <li><a href="/bones">Bonés</a></li>
+            <li><a href="/acessorios">Acessórios</a></li>
+            <li><a href="/novidades">Novidades</a></li>
+            <li><a href="/promocoes">Promoções</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>Sua vitrine,<br>do seu jeito!</h1>
+            <p>Encontre os produtos da NANABOROK<br>em um só lugar.</p>
+            <a href="/produtos" class="btn-hero">Ver produtos</a>
+        </div>
+        <div class="hero-produtos">
+            <img class="hp hp-camiseta" src="./imagens/produtos/camiseta.png" alt="Camiseta azul marinho">
+            <img class="hp hp-jaleco" src="./imagens/produtos/jaleco.png" alt="Jaleco branco">
+            <img class="hp hp-moletom" src="./imagens/produtos/moletom.png" alt="Moletom preto">
+        </div>
+    </section>
+
+    <main class="loja">
+        <div class="cupom">
+            <img src="./imagens/icones/cupom.png" alt="" width="28" height="28">
             <div>
-                <button>Ver produtos.</button>
+                <h3>10% OFF</h3>
+                <small>na primeira compra</small>
             </div>
+            <p>Use o cupom: <span>NANABOROK</span></p>
         </div>
-    </section>
 
-    <section>
-        <div class="infoComp">
-            <div class="cupom">
-                <img src="" alt="">
-                <h3>10% OFF na primeira compra</h3>
-                <p>Use o cupom: NANABOROK</p>
-            </div>
-            
-            <div class="entrega">
-                <img src="" alt="">
-                <h3>Entrega rápida</h3>
-                <p>Para todo o Brasil</p>
+        <section class="destaques">
+            <div class="destaques-topo">
+                <h2>Produtos em destaque</h2>
+                <a href="/produtos">Ver todos os produtos ↗</a>
             </div>
 
-            <div class="compra">
-                <img src="" alt="">
-                <h3>Compra Segura</h3>
-                <p>Seus dados protegidos</p>
+            <div class="divProd">
+                <article class="produto">
+                    <a href="/camisetas/azul-marinho">
+                        <div class="foto"><img src="./imagens/produtos/camiseta.png" alt="Camiseta azul marinho"></div>
+                        <h3>Camiseta azul marinho</h3>
+                        <p class="preco">R$ 39,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/jalecos/branco">
+                        <div class="foto"><img src="./imagens/produtos/jaleco.png" alt="Jaleco branco"></div>
+                        <h3>Jaleco branco</h3>
+                        <p class="preco">R$ 29,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/moletons/preto">
+                        <div class="foto"><img src="./imagens/produtos/moletom.png" alt="Moletom preto"></div>
+                        <h3>Moletom preto</h3>
+                        <p class="preco">R$ 79,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/calcas/jogger-preta">
+                        <div class="foto"><img src="./imagens/produtos/calca.png" alt="Calça jogger preta"></div>
+                        <h3>Calça jogger preta</h3>
+                        <p class="preco">R$ 69,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/bones/preto">
+                        <div class="foto"><img src="./imagens/produtos/bone.png" alt="Boné preto"></div>
+                        <h3>Boné preto</h3>
+                        <p class="preco">R$ 35,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/camisetas/branca">
+                        <div class="foto"><img src="./imagens/produtos/camiseta-branca.png" alt="Camiseta branca"></div>
+                        <h3>Camiseta branca</h3>
+                        <p class="preco">R$ 39,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/jalecos/azul">
+                        <div class="foto"><img src="./imagens/produtos/jaleco-azul.png" alt="Jaleco azul"></div>
+                        <h3>Jaleco azul</h3>
+                        <p class="preco">R$ 34,00</p>
+                    </a>
+                </article>
+
+                <article class="produto">
+                    <a href="/moletons/cinza">
+                        <div class="foto"><img src="./imagens/produtos/moletom-cinza.png" alt="Moletom cinza"></div>
+                        <h3>Moletom cinza</h3>
+                        <p class="preco">R$ 79,00</p>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="beneficios">
+            <div class="beneficio">
+                <div class="beneficio-icone">
+                    <img src="./imagens/icones/entrega.png" alt="">
+                </div>
+                <div>
+                    <h3>Entrega rápida</h3>
+                    <p>Seu pedido com agilidade<br>e segurança.</p>
+                </div>
             </div>
 
-
-        </div>
-    </section>
-
-    <section>
-        <h2>Produtos em destaque</h2>
-        <nav aria-label="Produtos">
-            <ul>
-                <li><a href="/calcas">Ver todos os produtos.</a></li>
-            </ul>
-        <div class="divProd">
-            <div class="camiseta">
-                <h
-                 <img src="./imagens/produtos/camiseta.png" alt="Camiseta">
+            <div class="beneficio">
+                <div class="beneficio-icone">
+                    <img src="./imagens/icones/brasil.png" alt="">
+                </div>
+                <div>
+                    <h3>Para todo o Brasil</h3>
+                    <p>Enviamos para todo o país<br>com praticidade.</p>
+                </div>
             </div>
-            <img src="./imagens/produtos/camiseta.png" alt="Camiseta">
-            <img src="./imagens/produtos/jaleco.png" alt="Jaleco.">
-            <img src="./imagens/produtos/moletom.png" alt="">
-        </div>
-    </section>
+
+            <div class="beneficio">
+                <div class="beneficio-icone">
+                    <img src="./imagens/icones/escudo.png" alt="">
+                </div>
+                <div>
+                    <h3>Compra segura</h3>
+                    <p>Seus dados protegidos<br>em todas as etapas.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divisor-footer">
+
+        <section class="links-footer">
+            <div>
+                <h3>Categorias</h3>
+                <ul>
+                    <li><a href="/camisetas">Camisetas <span>›</span></a></li>
+                    <li><a href="/jalecos">Jalecos <span>›</span></a></li>
+                    <li><a href="/moletons">Moletons <span>›</span></a></li>
+                    <li><a href="/calcas">Calças <span>›</span></a></li>
+                    <li><a href="/bones">Bonés <span>›</span></a></li>
+                    <li><a href="/acessorios">Acessórios <span>›</span></a></li>
+                    <li><a href="/novidades">Novidades <span>›</span></a></li>
+                    <li><a href="/promocoes">Promoções <span>›</span></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="/sobre">Sobre a NANABOROK <span>›</span></a></li>
+                    <li><a href="/missao">Nossa missão <span>›</span></a></li>
+                    <li><a href="/ideias">Envie uma ideia <span>›</span></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="/ajuda">Central de ajuda <span>›</span></a></li>
+                    <li><a href="/trocas">Trocas e devoluções <span>›</span></a></li>
+                    <li><a href="/pagamento">Formas de pagamento <span>›</span></a></li>
+                    <li><a href="/prazo-entrega">Prazo de entrega <span>›</span></a></li>
+                    <li><a href="/acompanhar">Acompanhe seu pedido <span>›</span></a></li>
+                    <li><a href="/pedido-confirmado">Pedido confirmado <span>›</span></a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Minha conta</h3>
+                <ul>
+                    <li><a href="/conta">Minha conta <span>›</span></a></li>
+                    <li><a href="/pedidos">Meus pedidos <span>›</span></a></li>
+                    <li><a href="/favoritos">Meus favoritos <span>›</span></a></li>
+                    <li><a href="/dados">Meus dados <span>›</span></a></li>
+                    <li><a href="/enderecos">Endereços <span>›</span></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="marca-footer">
+            <div class="logo-rodape">
+                <img src="./imagens/barra/logo.jpeg" alt="NANABOROK Clothes">
+            </div>
+            <div class="mensagem-marca">
+                <h2>Vista quem você é.<br>Vista NANABOROK.</h2>
+                <p>Mais que roupas, uma forma de expressão.</p>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>
